@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Interaktif Kepemimpinan PMR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .nav-link {
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-link.active {
+            background-color: #bae6fd; /* sky-200 */
+            color: #075985; /* sky-900 */
+            font-weight: 600;
+        }
+        .interactive-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .interactive-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-white border-r border-slate-200 p-6 hidden md:block flex-shrink-0">
+            <h1 class="text-xl font-bold text-sky-900 mb-8">Kepemimpinan PMR</h1>
+            <nav id="sidebar-nav" class="space-y-2">
+                <a href="#definisi" class="nav-link block p-3 rounded-lg">Definisi Kepemimpinan</a>
+                <a href="#dinamika" class="nav-link block p-3 rounded-lg">Dinamika Kelompok</a>
+                <a href="#komunikasi" class="nav-link block p-3 rounded-lg">Komunikasi</a>
+                <a href="#kerjasama" class="nav-link block p-3 rounded-lg">Kerja Sama</a>
+                <a href="#motivasi" class="nav-link block p-3 rounded-lg">Motivasi</a>
+                <a href="#gender" class="nav-link block p-3 rounded-lg">Gender</a>
+                <a href="#peer" class="nav-link block p-3 rounded-lg">Peer Leadership</a>
+                <a href="#presentasi-asli" class="nav-link block p-3 rounded-lg">Teks Presentasi Asli</a>
+            </nav>
+        </aside>
+
+        <div class="md:hidden w-full bg-white border-b border-slate-200 p-4 fixed top-0 left-0 z-10">
+            <select id="mobile-nav" class="w-full p-2 border border-slate-300 rounded-lg bg-white">
+                <option value="#definisi">Definisi Kepemimpinan</option>
+                <option value="#dinamika">Dinamika Kelompok</option>
+                <option value="#komunikasi">Komunikasi</option>
+                <option value="#kerjasama">Kerja Sama</option>
+                <option value="#motivasi">Motivasi</option>
+                <option value="#gender">Gender</option>
+                <option value="#peer">Peer Leadership</option>
+                <option value="#presentasi-asli">Teks Presentasi Asli</option>
+            </select>
+        </div>
+
+        <main class="flex-1 p-6 md:p-10 pt-24 md:pt-10">
+            <div id="content-definisi" class="content-section">
+                <h2 class="text-3xl font-bold mb-4 text-slate-900">Definisi Kepemimpinan</h2>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                    <p class="text-lg leading-relaxed">Kepemimpinan adalah kemampuan untuk memengaruhi, membimbing, dan mengarahkan individu atau kelompok lain untuk mencapai tujuan tertentu melalui kerja sama dan tindakan kolektif. Ini melibatkan proses menginspirasi, memotivasi, dan memfasilitasi tindakan bersama.</p>
+                </div>
+            </div>
+
+            <div id="content-dinamika" class="content-section">
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">Dinamika Kelompok</h2>
+                <p class="text-slate-600 mb-6">Interaksi, proses, dan perubahan yang terjadi di dalam suatu kelompok.</p>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-4">Tahapan Perkembangan Kelompok</h3>
+                    <p class="mb-6">Klik setiap tahap untuk melihat penjelasannya. Ini adalah proses alami yang dilalui setiap kelompok untuk menjadi efektif.</p>
+                    <div class="relative flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                        <div class="absolute top-0 left-1/2 w-0.5 h-full bg-slate-300 md:w-full md:h-0.5 md:top-1/2"></div>
+                        <div data-target="info-forming" class="stage-item z-10 text-center cursor-pointer">
+                            <div class="bg-sky-600 text-white w-24 h-24 rounded-full flex items-center justify-center font-bold text-lg shadow-md">1</div>
+                            <p class="mt-2 font-semibold">Forming</p>
+                        </div>
+                        <div data-target="info-storming" class="stage-item z-10 text-center cursor-pointer">
+                            <div class="bg-sky-700 text-white w-24 h-24 rounded-full flex items-center justify-center font-bold text-lg shadow-md">2</div>
+                            <p class="mt-2 font-semibold">Storming</p>
+                        </div>
+                        <div data-target="info-norming" class="stage-item z-10 text-center cursor-pointer">
+                            <div class="bg-sky-800 text-white w-24 h-24 rounded-full flex items-center justify-center font-bold text-lg shadow-md">3</div>
+                            <p class="mt-2 font-semibold">Norming</p>
+                        </div>
+                        <div data-target="info-performing" class="stage-item z-10 text-center cursor-pointer">
+                            <div class="bg-sky-900 text-white w-24 h-24 rounded-full flex items-center justify-center font-bold text-lg shadow-md">4</div>
+                            <p class="mt-2 font-semibold">Performing</p>
+                        </div>
+                        <div data-target="info-adjourning" class="stage-item z-10 text-center cursor-pointer">
+                            <div class="bg-slate-500 text-white w-24 h-24 rounded-full flex items-center justify-center font-bold text-lg shadow-md">5</div>
+                            <p class="mt-2 font-semibold">Adjourning</p>
+                        </div>
+                    </div>
+                    <div id="stage-info-box" class="mt-6 p-4 bg-slate-100 rounded-lg border border-slate-200 min-h-[100px]">
+                        <div id="info-forming" class="stage-info hidden"><strong>Pembentukan:</strong> Tahap awal di mana anggota baru berkumpul dan saling mengenal. Masih ada rasa canggung.</div>
+                        <div id="info-storming" class="stage-info hidden"><strong>Konflik:</strong> Tahap di mana perbedaan pendapat dan konflik peran muncul. Ini krusial untuk pertumbuhan.</div>
+                        <div id="info-norming" class="stage-info hidden"><strong>Normalisasi:</strong> Kelompok mulai menyepakati aturan dan prosedur. Kekompakan meningkat.</div>
+                        <div id="info-performing" class="stage-info hidden"><strong>Pelaksanaan:</strong> Kelompok berfungsi secara optimal dan fokus mencapai tujuan.</div>
+                        <div id="info-adjourning" class="stage-info hidden"><strong>Pembubaran:</strong> Tahap di mana kelompok bubar setelah tujuan tercapai.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-komunikasi" class="content-section">
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">Komunikasi</h2>
+                <p class="text-slate-600 mb-6">Proses penyampaian dan penerimaan pesan untuk mencapai pemahaman bersama.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                        <h3 class="text-xl font-semibold mb-4">Jenis Komunikasi</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-sky-100 rounded-lg">
+                                <h4 class="font-bold text-sky-900">Verbal</h4>
+                                <p>Menggunakan kata-kata, baik lisan (berbicara) maupun tulisan (pesan teks).</p>
+                            </div>
+                            <div class="p-4 bg-sky-100 rounded-lg">
+                                <h4 class="font-bold text-sky-900">Non-verbal</h4>
+                                <p>Tanpa kata-kata, seperti ekspresi wajah, gerakan tubuh, dan nada suara.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                        <h3 class="text-xl font-semibold mb-4">Prinsip Efektif</h3>
+                        <ul class="list-disc list-inside space-y-2 text-slate-700">
+                            <li><strong>Jelas dan Ringkas:</strong> Pesan mudah dipahami.</li>
+                            <li><strong>Mendengarkan Aktif:</strong> Memberi perhatian penuh untuk memahami.</li>
+                            <li><strong>Umpan Balik:</strong> Memberi dan menerima tanggapan.</li>
+                            <li><strong>Empati:</strong> Memahami perasaan dan perspektif orang lain.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-kerjasama" class="content-section">
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">Kerja Sama (Teamwork)</h2>
+                <p class="text-slate-600 mb-6">Upaya kolaboratif untuk mencapai tujuan bersama.</p>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                     <h3 class="text-xl font-semibold mb-4">Elemen Kunci Kerja Sama Efektif</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="interactive-card text-center p-4 border rounded-lg bg-slate-50">
+                            <span class="text-3xl">🎯</span>
+                            <p class="font-semibold mt-2">Tujuan Jelas</p>
+                        </div>
+                        <div class="interactive-card text-center p-4 border rounded-lg bg-slate-50">
+                            <span class="text-3xl">🎭</span>
+                            <p class="font-semibold mt-2">Peran Jelas</p>
+                        </div>
+                        <div class="interactive-card text-center p-4 border rounded-lg bg-slate-50">
+                            <span class="text-3xl">🤝</span>
+                            <p class="font-semibold mt-2">Saling Percaya</p>
+                        </div>
+                        <div class="interactive-card text-center p-4 border rounded-lg bg-slate-50">
+                            <span class="text-3xl">🗣️</span>
+                            <p class="font-semibold mt-2">Komunikasi Terbuka</p>
+                        </div>
+                        <div class="interactive-card text-center p-4 border rounded-lg bg-slate-50">
+                            <span class="text-3xl">🧩</span>
+                            <p class="font-semibold mt-2">Solusi Konflik</p>
+                        </div>
+                        <div class="interactive-card text-center p-4 border rounded-lg bg-slate-50">
+                            <span class="text-3xl">🙌</span>
+                            <p class="font-semibold mt-2">Saling Mendukung</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-motivasi" class="content-section">
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">Motivasi</h2>
+                 <p class="text-slate-600 mb-6">Kekuatan pendorong yang menyebabkan seseorang bertindak.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                        <h3 class="text-xl font-semibold mb-4">Jenis Motivasi</h3>
+                        <div class="flex space-x-4">
+                             <div class="flex-1 p-4 bg-sky-100 rounded-lg border-l-4 border-sky-700">
+                                <h4 class="font-bold text-sky-900">Intrinsik (Dari Dalam)</h4>
+                                <p>Dorongan dari kepuasan pribadi, minat, atau rasa ingin tahu.</p>
+                            </div>
+                            <div class="flex-1 p-4 bg-slate-100 rounded-lg border-l-4 border-slate-500">
+                                <h4 class="font-bold text-slate-800">Ekstrinsik (Dari Luar)</h4>
+                                <p>Dorongan dari penghargaan, pujian, atau pengakuan.</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                        <h3 class="text-xl font-semibold mb-4">Strategi Memotivasi Tim</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-sky-700 mr-3 mt-1">✓</span><span><strong>Beri Apresiasi:</strong> Ucapkan terima kasih dan puji kerja keras mereka.</span></li>
+                            <li class="flex items-start"><span class="text-sky-700 mr-3 mt-1">✓</span><span><strong>Libatkan Anggota:</strong> Ajak mereka dalam pengambilan keputusan.</span></li>
+                            <li class="flex items-start"><span class="text-sky-700 mr-3 mt-1">✓</span><span><strong>Ciptakan Lingkungan Positif:</strong> Bangun suasana yang suportif.</span></li>
+                            <li class="flex items-start"><span class="text-sky-700 mr-3 mt-1">✓</span><span><strong>Jadilah Contoh:</strong> Tunjukkan semangat dan komitmen Anda.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="content-gender" class="content-section">
+                 <h2 class="text-3xl font-bold mb-2 text-slate-900">Gender</h2>
+                 <p class="text-slate-600 mb-6">Peran, perilaku, dan identitas yang dibangun secara sosial.</p>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-4">Kepemimpinan yang Inklusif Gender</h3>
+                    <p class="mb-6">Seorang pemimpin harus memastikan perlakuan yang adil dan kesempatan yang sama bagi semua anggota, tanpa memandang gender. Ini memperkuat tim dan memaksimalkan potensi.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                         <div class="bg-red-200 p-4 rounded-lg border border-red-400">
+                            <h4 class="font-bold text-red-800 mb-2">Hindari Ini: Stereotip Gender</h4>
+                            <p class="text-red-700">Menganggap tugas "berat" hanya untuk laki-laki atau tugas "administrasi" hanya untuk perempuan. Ini membatasi potensi individu.</p>
+                        </div>
+                        <div class="bg-emerald-200 p-4 rounded-lg border border-emerald-400">
+                            <h4 class="font-bold text-emerald-800 mb-2">Lakukan Ini: Beri Kesempatan Sama</h4>
+                            <p class="text-emerald-700">Bagikan tugas berdasarkan kemampuan, minat, dan rotasi. Dorong semua anggota untuk mencoba berbagai peran agar dapat berkembang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-peer" class="content-section">
+                <h2 class="text-3xl font-bold mb-2 text-slate-900">Peer Leadership</h2>
+                <p class="text-slate-600 mb-6">Kepemimpinan yang muncul dari pengaruh positif antar teman sebaya, tanpa jabatan formal.</p>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-4">Karakteristik Seorang Peer Leader</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div class="interactive-card p-4 border rounded-lg bg-slate-50">
+                            <div class="text-3xl mb-2">🌟</div>
+                            <p class="font-semibold">Panutan</p>
+                        </div>
+                        <div class="interactive-card p-4 border rounded-lg bg-slate-50">
+                            <div class="text-3xl mb-2">💬</div>
+                            <p class="font-semibold">Fasilitator</p>
+                        </div>
+                        <div class="interactive-card p-4 border rounded-lg bg-slate-50">
+                            <div class="text-3xl mb-2">👂</div>
+                            <p class="font-semibold">Pendengar Baik</p>
+                        </div>
+                        <div class="interactive-card p-4 border rounded-lg bg-slate-50">
+                            <div class="text-3xl mb-2">💡</div>
+                            <p class="font-semibold">Inisiator</p>
+                        </div>
+                    </div>
+                     <p class="mt-6 bg-sky-200 text-sky-900 p-4 rounded-lg border border-sky-400">
+                        <strong>Mengapa ini penting?</strong> Dalam PMR, pengaruh dari teman sebaya seringkali sangat kuat. Mengembangkan *peer leadership* di setiap anggota akan menciptakan tim yang lebih kuat, mandiri, dan saling mendukung.
+                    </p>
+                </div>
+            </div>
+
+            <div id="content-presentasi-asli" class="content-section">
+                <h2 class="text-3xl font-bold mb-4 text-slate-900">Teks Presentasi Asli</h2>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200 text-slate-700 leading-relaxed">
+                    <p class="mb-4">Assalamualaikum warahmatullahi wabarakatuh,</p>
+                    <p class="mb-4">Perkenalkan nama saya taufiq mahdi wafy, dari pmr wira unit man 4 jombang</p>
+                    <p class="mb-4">Sebelum kita memulai kegiatan pada kesempatan kali ini, marilah kita panjatkan doa dan puji syukur kepada tuhan yang maha esa yang telah memberi nikmat dan kesehatan kepada kita semua dan agar kegiatan ini dapat berjalan lancar, berdoa sesuai kepercayaan masing masing, mulai, berdoa selesai</p>
+                    <p class="mb-4">Halo temen temennn</p>
+                    <p class="mb-4">Jadi Saya disini akan menyampaikan salah satu materi pmr yaitu kepemimpinan !!</p>
+                    <p class="mb-4">Sebelumnyaaa, temen temen udah pada tau belum, apa sih pemimpin ituu ??,</p>
+                    <p class="mb-4">Jadi, pemimpin adalah seseorang yang dapat memberikan pengaruh dan motivasi kepada diri sendiri maupun orang lain.</p>
+                    <p class="mb-4">Kalo kepemimpinan apa niih ????</p>
+                    <p class="mb-4">Jadii, Kepemimpinan adalah suatu proses di mana seseorang memengaruhi dan mengarahkan sekelompok individu untuk mencapai tujuan yang telah disepakati bersama.</p>
+                    <p class="mb-4">Tapi, ternyata banyak loh temen-temen orang yang takut memimpin dengan berbagai alasan. Sepertiii,</p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>rasa malu,</li>
+                        <li>minder,</li>
+                        <li>takut salah,</li>
+                        <li>kurangnya percaya diri,</li>
+                        <li>atau bahkan tidak tahu bagaimana caranya menjadi pemimpin.</li>
+                    </ul>
+                    <p class="mb-4">Kita pasti pernah nih berfikir, "Aku mah bukan siapa-siapa...", atau "Kayaknya aku nggak cocok deh jadi pemimpin..."</p>
+                    <p class="mb-4">Padahal ya, setiap dari kita punya potensi untuk menjadi pemimpin.</p>
+                    <p class="mb-4">Pemimpin itu nggak harus yang paling pintar, paling vokal, atau paling aktif. Langkah pertama menjadi pemimpin itu cukup dimulai dari hal kecil:</p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>berani menyampaikan pendapat,</li>
+                        <li>mau mendengarkan orang lain,</li>
+                        <li>dan bertanggung jawab atas apa yang kita lakukan.</li>
+                    </ul>
+                    <p class="mb-4">Contoh kecil nih, misalnya waktu kerja kelompok. Pasti ada salah satu dari anggota yang memberi arahan, yang ngebagi tugas ke tiap anggota kelompok, Nah, iti sudah termasuk contoh kepemimpinan temen temen.</p>
+                    <p class="mb-4">Kalau kalian??,, Pernah nggak kalian jadi pemimpin dalam kegiatan sekolah, organisasi, atau mungkin acara lainnya?</p>
+                    <p class="mb-4">Ada yang pernah dan ada juga yang belum pernah</p>
+                    <p class="mb-4">Kalau belum pernah, jangan takut untuk mulai. Karena kepemimpinan itu bisa dilatih. Yang penting ada niat sama kemauan untuk belajar, itu kuncinya temen temen.</p>
+                    <p class="mb-4">Tapi ingat, kepemimpinan juga butuh pengawasan. Jangan sampai karena merasa sudah memimpin, kita jadi seenaknya sendiri dan nggak mau mendengarkan tim. Pemimpin yang baik selalu bersedia menerima dan mendengarkan masukan serta bijak dalam mengambil keputusan atau tindakan.</p>
+                    <p class="mb-4">Setiap pemimpin juga pasti memiliki gaya kepemimpinan yang berbeda-beda, seperti demokratis, otoriter, liberal, dan diktatoris, yang semuanya punya kelebihan dan kekurangannya masing-masing.</p>
+                    <p class="mb-4">Kalo demokratis itu memiliki ciri ciri</p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Mengedepankan musyawarah dan partisipasi rakyat.</li>
+                        <li>Pemimpin mendengar suara masyarakat dan membuat keputusan bersama lembaga lain (parlemen, dewan, dll).</li>
+                    </ul>
+                    <p class="mb-4">Contohnya nih, presiden ke 7 kita bapak joko widodo, yang Cenderung demokratis dalam sistem pemerintahan, bekerja sama dengan DPR, partai, dan mendengar masukan masyarakat.</p>
+                    <p class="mb-4">Yang kedua, Otoriter dengan ciri ciri</p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Kekuasaan terpusat di tangan pemimpin.</li>
+                        <li>Rakyat sedikit atau bahkan tidak punya ruang untuk berpartisipasi.</li>
+                        <li>Sering membatasi kebebasan berpendapat.</li>
+                    </ul>
+                    <p class="mb-4">Contohnya, Benito Mussolini dari Italia, seorang Pemimpin fasis Italia yang memaksakan satu ideologi dan mengontrol semua aspek kehidupan rakyat.</p>
+                    <p class="mb-4">Yang ketiga, Liberal yang ciri cirinya,</p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Pemimpin hanya memberi arahan minimal.</li>
+                        <li>Keputusan lebih banyak diambil oleh bawahan atau kelompok.</li>
+                        <li>Cocok untuk masyarakat yang sudah dewasa dan sistem yang kuat.</li>
+                    </ul>
+                    <p class="mb-4">Contohnya, Negara Skandinavia seperti Swedia yang Dikenal memberi banyak kebebasan bagi individu dan organisasi sipil, pemerintah berperan sebagai fasilitator, bukan pengontrol.</p>
+                    <p class="mb-4">Yang keempat, Diktatoris, dengan ciri-ciri:</p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Kekuasaan mutlak berada di tangan satu orang.</li>
+                        <li>Segala keputusan ditentukan oleh pemimpin tanpa musyawarah.</li>
+                        <li>Rakyat tidak memiliki kebebasan sama sekali, bahkan hidup dalam ketakutan.</li>
+                    </ul>
+                    <p class="mb-4">Contohnya, Josef Stalin, pemimpin Uni Soviet, yang dikenal memerintah dengan tangan besi. Ia mengontrol penuh kehidupan rakyat, membungkam kritik, dan menjalankan sistem pemerintahan yang keras dengan banyak penindasan terhadap lawan politiknya. Rakyat tidak punya ruang untuk menyampaikan pendapat, dan siapa pun yang dianggap mengancam kekuasaan bisa dipenjara bahkan dibunuh.</p>
+                    <p class="mb-4">Dari contoh gaya kepemimpinan yg sudah saya sebutkan bisa disimpulkan nih temen temen Bahwa Pemimpin itu bukan soal jabatan. Tapi soal sikap dan karakter kepemimpinan</p>
+                    <p class="mb-4">Break, game tebak kata tanpa suara(nonverbal)</p>
+                    <p class="mb-4">Tadi itu merupakan contoh dari komunikasi nonverbal, Temen temen tau apa itu komunikasi??,</p>
+                    <p class="mb-4">Komunikasi adalah proses menyampaikan pesan dari satu pihak ke pihak lain, baik secara langsung maupun tidak langsung, untuk mencapai pemahaman bersama.</p>
+                    <p class="mb-4">Jenisnya ada 2 nih temen temen</p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Verbal (langsung dengan kata-kata):</li>
+                        <ul class="list-circle list-inside ml-4">
+                            <li>Lisan (berbicara, diskusi)</li>
+                            <li>Tertulis (surat, pesan teks, e-mail)</li>
+                        </ul>
+                        <li>Nonverbal (tanpa kata-kata):</li>
+                        <ul class="list-circle list-inside ml-4">
+                            <li>Ekspresi wajah</li>
+                            <li>Gerakan tubuh (gesture)</li>
+                            <li>Nada suara</li>
+                        </ul>
+                    </ul>
+                    <p class="mb-4">Unsur-Unsur Komunikasi</p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>Komunikator (pengirim pesan)</li>
+                        <li>Pesan (informasi yang disampaikan</li>
+                        <li>Media/Saluran (cara menyampaikan pesan)</li>
+                        <li>Komunikan (penerima pesan)</li>
+                        <li>Umpan Balik (respon balik dari komunikan)</li>
+                    </ul>
+                    <p class="mb-4">Kira kira kalo salah satu dari kelima unsur tersebut nggak ada, apakah itu komunikasi?</p>
+                    <p class="mb-4">Jawabannya adalah: Tidak sempurna, bahkan tidak efektif.</p>
+                    <p class="mb-4">Contohnya, aku ngomong di depan kelas (ada komunikator, pesan, media, komunikan), tapi semua diam saja, tidak ada yang mengangguk atau bereaksi (yang berarti tidak ada respon). Nah, itu komunikasi yang tidak efektif.</p>
+                    <p class="mb-4">Nah, ngomongin soal komunikasi yang efektif, ini penting banget buat peran yang satu ini...</p>
+                    <p class="mb-4">Temen-temen pernah denger istilah peer educator?</p>
+                    <p class="mb-4">Peer educator atau pendidik sebaya adalah teman-teman sebaya kita yang jadi contoh dan penggerak di lingkungan sekitarnya. Mereka memimpin bukan karena jabatan, tapi karena sikapnya yang peduli, mau membantu, dan bisa mengajak teman-temannya ke arah yang lebih baik.</p>
+                    <p class="mb-4">Jadi peer educator itu bukan berarti harus tahu segalanya. Tapi justru karena mereka mau belajar, mau dengerin, dan mau berbagi—itulah yang bikin mereka didengar dan dihargai. Kadang, nasihat yang paling masuk justru bukan dari guru atau orang tua, tapi dari teman sendiri yang paham dan peduli.</p>
+                    <p class="mb-4">Dan itu semua... nggak bisa lepas dari kemampuan komunikasi yang baik.</p>
+                    <p class="mb-4">Maka dari itu, yuk kita mulai berani untuk memimpin dan berkomunikasi dengan baik di lingkungan kita. Kalau gagal? Wajar. Namanya juga belajar. Yang penting, jangan pernah takut untuk melangkah.</p>
+                    <p class="mb-4">Dari apa yang telah kita pelajari hari ini, bisa kita simpulkan bahwa kepemimpinan adalah kemampuan yang bisa dimiliki dan dilatih oleh siapa saja, termasuk kita semua di sini. Menjadi pemimpin tidak harus menunggu pintar dulu, aktif dulu, atau punya jabatan dulu. Tapi dimulai dari hal-hal sederhana: berani bicara, mau mendengarkan, dan bertanggung jawab.</p>
+                    <p class="mb-4">pemimpin yang baik bukanlah yang selalu benar, tapi yang mau belajar dari kesalahan, mau tumbuh bersama timnya, dan punya hati untuk melayani. Jadi, mulai sekarang, yuk kita semua berani mengambil peran itu, meskipun kecil. Karena perubahan besar selalu dimulai dari langkah kecil.</p>
+                    <p class="mb-4">Terima kasih sudah menyimak,</p>
+                    <p class="mb-4">Wassalamualaikum warahmatullahi wabarakatuh.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sidebarNav = document.getElementById('sidebar-nav');
+        const mobileNav = document.getElementById('mobile-nav');
+        const contentSections = document.querySelectorAll('.content-section');
+        const stageItems = document.querySelectorAll('.stage-item');
+        const stageInfoBox = document.getElementById('stage-info-box');
+        const stageInfos = document.querySelectorAll('.stage-info');
+
+        function switchContent(hash) {
+            contentSections.forEach(section => {
+                if ('#' + section.id.replace('content-', '') === hash) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+
+            document.querySelectorAll('#sidebar-nav .nav-link').forEach(link => {
+                if (link.getAttribute('href') === hash) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            mobileNav.value = hash;
+        }
+
+        sidebarNav.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                e.preventDefault();
+                const hash = e.target.getAttribute('href');
+                switchContent(hash);
+                window.location.hash = hash;
+            }
+        });
+        
+        mobileNav.addEventListener('change', function(e){
+            const hash = e.target.value;
+            switchContent(hash);
+            window.location.hash = hash;
+        });
+
+        stageItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const targetId = item.dataset.target;
+
+                stageInfos.forEach(info => {
+                    info.classList.add('hidden');
+                });
+
+                document.getElementById(targetId).classList.remove('hidden');
+                
+                stageItems.forEach(i => i.querySelector('div:first-child').style.opacity = '0.7');
+                item.querySelector('div:first-child').style.opacity = '1';
+            });
+        });
+
+        // Initial state
+        const initialHash = window.location.hash || '#definisi';
+        switchContent(initialHash);
+
+        // Show first stage info by default
+        const firstStage = document.querySelector('.stage-item');
+        if(firstStage) {
+            firstStage.click();
+        }
+    });
+</script>
+
+</body>
+</html>
