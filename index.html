@@ -256,20 +256,12 @@
 
             <div id="content-ai" class="content-section">
                 <h2 class="text-3xl font-bold mb-4 text-slate-900">Interaksi AI ✨</h2>
-                <p class="text-slate-600 mb-6">Pilih jenis interaksi AI yang Anda inginkan untuk mendapatkan analisis dan saran kepemimpinan.</p>
+                <p class="text-slate-600 mb-6">Masukkan pertanyaan atau deskripsi situasi kepemimpinan Anda, dan AI akan memberikan analisis singkat serta saran.</p>
                 <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-                    <div class="mb-4">
-                        <label for="ai-mode-selector" class="block text-lg font-semibold mb-2">Pilih Mode AI:</label>
-                        <select id="ai-mode-selector" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 bg-white">
-                            <option value="kasus">Latihan Kasus Interaktif</option>
-                            <option value="gaya">Analisis Gaya Kepemimpinan Pribadi</option>
-                        </select>
-                    </div>
-
                     <div id="ai-input-area">
-                        <label for="ai-challenge-input" class="block text-lg font-semibold mb-2">Deskripsikan Tantangan/Situasi Anda:</label>
-                        <textarea id="ai-challenge-input" class="w-full p-3 border border-slate-300 rounded-lg mb-4 focus:ring-sky-500 focus:border-sky-500" rows="5" placeholder="Masukkan deskripsi di sini..."></textarea>
-                        <button id="ai-generate-btn" class="bg-sky-700 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-sky-800 transition duration-200">✨ Hasilkan Analisis ✨</button>
+                        <label for="ai-challenge-input" class="block text-lg font-semibold mb-2">Pertanyaan/Situasi Kepemimpinan:</label>
+                        <textarea id="ai-challenge-input" class="w-full p-3 border border-slate-300 rounded-lg mb-4 focus:ring-sky-500 focus:border-sky-500" rows="5" placeholder="Contoh: 'Bagaimana cara memotivasi anggota tim yang pasif?' atau 'Analisis gaya kepemimpinan saya saat saya selalu meminta masukan sebelum mengambil keputusan.'"></textarea>
+                        <button id="ai-generate-btn" class="bg-sky-700 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-sky-800 transition duration-200">✨ Dapatkan Analisis/Saran AI ✨</button>
                         <div id="ai-loading-indicator" class="mt-4 text-sky-700 hidden">Memproses...</div>
                         <div id="ai-response-output" class="mt-6 p-4 bg-slate-100 rounded-lg border border-slate-200 min-h-[150px] text-slate-800">
                             </div>
@@ -487,31 +479,24 @@
             }
         }
 
-        const aiModeSelector = document.getElementById('ai-mode-selector');
         const aiChallengeInput = document.getElementById('ai-challenge-input');
         const aiGenerateBtn = document.getElementById('ai-generate-btn');
         const aiLoadingIndicator = document.getElementById('ai-loading-indicator');
         const aiResponseOutput = document.getElementById('ai-response-output');
 
         aiGenerateBtn.addEventListener('click', async () => {
-            const mode = aiModeSelector.value;
             const inputText = aiChallengeInput.value.trim();
             let prompt = '';
             let errorMessage = '';
 
             if (!inputText) {
-                aiResponseOutput.innerHTML = '<p class="text-red-600">Mohon masukkan deskripsi terlebih dahulu.</p>';
+                aiResponseOutput.innerHTML = '<p class="text-red-600">Mohon masukkan pertanyaan atau deskripsi situasi Anda terlebih dahulu.</p>';
                 return;
             }
 
-            if (mode === 'kasus') {
-                prompt = `Sebagai ahli kepemimpinan PMR, berikan analisis dan solusi yang sangat singkat dan padat untuk tantangan kepemimpinan berikut: "${inputText}". Fokus pada poin-poin penting, penjelasan singkat, dan contoh kasus yang relevan dengan materi kepemimpinan PMR (Dinamika Kelompok, Komunikasi, Kerja Sama, Motivasi, Gender, Peer Leadership). Format respons Anda dengan jelas, diawali dengan 'Skenario:', 'Analisis:', dan 'Solusi Disarankan:'.`;
-                errorMessage = 'Maaf, tidak dapat menghasilkan solusi kasus. Silakan coba lagi.';
-            } else if (mode === 'gaya') {
-                prompt = `Sebagai ahli kepemimpinan PMR, analisislah gaya kepemimpinan yang paling sesuai (Demokratis, Otoriter, Liberal, atau Diktatoris) berdasarkan deskripsi situasi dan tindakan kepemimpinan berikut: "${inputText}". Jelaskan secara ringkas mengapa gaya tersebut paling sesuai dengan ciri-ciri yang disebutkan dalam materi kepemimpinan PMR. Berikan juga saran singkat untuk pengembangan. Format respons Anda dengan jelas, diawali dengan 'Analisis Gaya:', 'Penjelasan:', dan 'Saran Pengembangan:'.`;
-                errorMessage = 'Maaf, tidak dapat menganalisis gaya kepemimpinan. Silakan coba lagi.';
-            }
-
+            prompt = `Sebagai ahli kepemimpinan PMR, berikan analisis dan saran singkat untuk pertanyaan atau situasi kepemimpinan berikut: "${inputText}". Fokus pada poin-poin penting dan relevansi dengan materi kepemimpinan PMR (Definisi Kepemimpinan, Dinamika Kelompok, Komunikasi, Kerja Sama, Motivasi, Gender, Peer Leadership).`;
+            errorMessage = 'Maaf, tidak dapat menganalisis atau memberikan saran. Silakan coba lagi.';
+            
             await callGeminiAPI(prompt, aiResponseOutput, aiLoadingIndicator, errorMessage);
         });
     });
